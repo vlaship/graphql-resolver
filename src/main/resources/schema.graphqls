@@ -1,0 +1,35 @@
+schema {
+    query: ProductQueries
+    mutation: ProductMutations
+#    subscription: ProductSubscriptions
+}
+
+type Product {
+    id: String
+    brand: String
+    category: String
+    subCategory: String
+    vendorCode: String
+    productName: String
+    price: Float
+}
+
+input ProductInput {
+    id: String!
+    price: Float!
+}
+
+type ProductSubscriptions {
+    product: Product
+}
+
+type ProductQueries {
+    product(id: String!): Product
+    products: [Product]
+    productsByName(name: String!): [Product]
+}
+
+type ProductMutations {
+    updateProduct(id: ID!, price: Float): Product!
+    deleteProduct(id: ID!): Boolean
+}

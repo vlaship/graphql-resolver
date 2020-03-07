@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: GraphQL_MongoDB
+  main:
+    banner-mode: 'off'
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: db
+server:
+  port: 59999
+graphql:
+  servlet:
+    mapping: /api/query
+    enabled: true
+    corsEnabled: true
+graphiql:
+  mapping: /graphiql
+  endpoint: /api/query
+  enabled: true
